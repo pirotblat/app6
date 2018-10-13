@@ -1,0 +1,54 @@
+<nav>
+  <ul>
+    <li>
+      <a routerLink="users" [class.activated]="currentUrl == '/users'" title="users">
+        <i class="material-icons">supervised_user_circle</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="posts" routerLinkActive="active" title="posts">
+        <i class="material-icons">message</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="chart" routerLinkActive="active" title="chart">
+        <i class="material-icons">trending_up</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="form-driven" routerLinkActive="active" title="driven form" >
+        <i class="material-icons">view_list</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="form-reactive" routerLinkActive="active" title="reactive form" >
+        <i class="material-icons">library_books</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="form-dynamic" routerLinkActive="active" title="dynamic form" >
+        <i class="material-icons">low_priority</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="heroes" routerLinkActive="active" title="heroes" >
+        <i class="material-icons">accessibility_new</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="dashboard" routerLinkActive="active" title="dashboard heroes" >
+        <i class="material-icons">accessibility</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="material" routerLinkActive="active" title="material" >
+        <i class="material-icons">event</i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="todo" routerLinkActive="active" title="todo" >
+        <i class="material-icons">group_work</i>
+      </a>
+    </li>
+  </ul>
+</nav>

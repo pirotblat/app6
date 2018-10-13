@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <h1>Reactive form</h1>
+  <form [formGroup]="regForm">
+    <div class="form-group">
+      <label>userName</label>
+      <input formControlName="userName" type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input formControlName="password" type="password" class="form-control" >
+    </div>
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input formControlName="confirmPassword" type="password" class="form-control" >
+    </div>
+
+    <div formGroupName="address">
+      <div class="form-group">
+        <label>Street</label>
+        <input formControlName="street" type="text" class="form-control" name="street">
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input formControlName="city" type="text" class="form-control" name="city">
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <input formControlName="state" type="text" class="form-control" name="state">
+      </div>
+      <div class="form-group">
+        <label>Postal Code</label>
+        <input formControlName="postalCode" type="text" class="form-control" name="postalCode">
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Register</button>
+  </form>
+  {{regForm.value | json}}
+
+</div>
+
+<div class="container-fluid" *ngIf="!name; else forminfo">
+    <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+      <h1>My Reactive Form</h1>
+      <div class="form-group">
+        <label>Name</label>
+        <input formControlName="name" type="text" class="form-control" >
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+        {{ titleAlert }}
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea formControlName="description" class="form-control" ></textarea>
+      </div>
+      <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">
+        You must specify a description that's between 10 and 500 characters.
+      </div>
+      <div class="form-group">
+        <label>Minimum of 3 Characters</label><br>
+        <input type="checkbox" name="validate" formControlName="validate" value="1"> On
+      </div>
+      <input type="submit" class="btn btn-primary" value="Submit Form" [disabled]="!rForm.valid">
+    </form>
+  </div>
+  
+  <ng-template #forminfo>
+    <h1>{{ name }}</h1>
+    <p>{{ description }}</p>
+  </ng-template>

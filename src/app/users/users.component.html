@@ -1,0 +1,13 @@
+<h1>Users</h1>
+<h4>{{ errorMsg }}</h4>
+<ul [@listStagger]="users" class="items">
+  <li [class.selected]="isSelected(user)" *ngFor="let user of users">
+    <!-- <a routerLink="/users/{{user.id}}">{{ user.name }}</a> -->
+    <a (click)="onSelect(user)">{{ user.name }}</a>
+
+    <ul>
+      <li>{{ user.email }}</li>
+      <!-- <li><a href="http://{{ user.website }}">{{ user.website }}</a></li> -->
+    </ul>
+  </li>
+</ul>

@@ -1,0 +1,32 @@
+<h1>Dynamic Reactive Form</h1>
+<h2>Team form</h2>
+<form [formGroup]="teamEditForm" *ngIf="selectedTeam" (ngSubmit)="saveTeam()">
+  <div class="form-group" *ngFor="let field of formFields">
+    <label [for]="field.key">{{field.label}}</label>
+    <div [ngSwitch]="field.fieldType">
+      <input *ngSwitchCase="0" [formControlName]="field.key" [type]="field.inputTypeName" [placeholder]="field.placeholder"
+      class="form-control" [name]="field.key" [id]="field.key">
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Submit Form" [disabled]="!teamEditForm.valid">
+</form>
+
+<br><br>
+
+<h2>Angular sample form</h2>
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>

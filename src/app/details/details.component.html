@@ -1,0 +1,22 @@
+<div *ngIf="user$">
+
+  <!-- <a [routerLink]="goPrev1()">אחורה</a>
+  <a [routerLink]="goNext1()">קדימה</a> -->
+
+  <button class="btn btn-primary" (click)="goPrev()">אחורה</button>
+  <button class="btn btn-primary" (click)="goNext()">קדימה</button>
+  <button class="btn btn-primary" (click)="goBack()">חזור</button>
+
+  <h1>{{ user$.name }}</h1>
+
+  <ul>
+    <li><strong>Username:</strong> {{ user$.username }}</li>
+    <li><strong>Email:</strong> {{ user$.email }}</li>
+    <li><strong>Phone:</strong> {{ user$.phone }}</li>
+  </ul>
+
+  <p>
+    <button class="btn btn-primary" (click)="showAddress()">כתובת</button>
+  </p>
+  <router-outlet></router-outlet>
+</div>

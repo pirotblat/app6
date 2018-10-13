@@ -1,0 +1,23 @@
+<table class="table table-sm table-hover">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Entered</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let todo of srv.todoList">
+    <td>{{ todo.title }}</td>
+    <td>{{ todo.description }}</td>
+    <td>{{ todo.entered | date:'dd/MM/yyyy' }}</td>
+    <td>
+      <a class="btn" (click)="editTodo(todo)">
+        <i class="fa fa-pencil-square-o"></i>
+      </a>
+    </td>
+    <td>
+      <a class="btn text-danger" (click)="deleteTodo(todo)">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,33 @@
+<form class="todo-form" #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)">
+  <input type="hidden" name=id #id="ngModel"
+    [(ngModel)]="srv.selectedTodo.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name=title #title="ngModel"
+       [(ngModel)]="srv.selectedTodo.title" placeholder="Title" required>
+       <div class="validation-error" *ngIf= "title.invalid && title.touched">
+         This field is required.
+       </div>
+    </div>
+    <div class="form-group col-md-6">
+      <!-- <input type="date" class="form-control" name=entered #entered="ngModel"
+      [(ngModel)]="srv.selectedTodo.entered" placeholder="Entered"> -->
+      <input type="date" class="form-control" name=entered #entered="ngModel"
+        [ngModel]="srv.selectedTodo.entered | date:'yyyy-MM-dd'" 
+        (ngModelChange)="srv.selectedTodo.entered = $event">
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" name=description #description="ngModel"
+    [(ngModel)]="srv.selectedTodo.description" placeholder="Description">
+ </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <button type="submit" class="btn btn-lg btn-block btn-info" [disabled]="!todoForm.valid">
+        <i class="fa fa-floppy-o"></i>Submit</button>
+    </div>
+    <div class="form-group col-md-6">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(todoForm)"><i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>
