@@ -46,7 +46,6 @@ import { ToastrModule } from 'ngx-toastr';
     ),
     ToastrModule.forRoot()
   ],
-  
   providers: [],
   bootstrap: [AppComponent]
 })
