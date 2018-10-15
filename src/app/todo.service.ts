@@ -22,19 +22,19 @@ export class TodoService {
   constructor(private http: HttpClient) { }
   getTodos() {
     this.todoList = [];
-    this.http.get<TodoItem[]>(this._baseUrl + 'todos')
+    this.http.get<any[]>(this._baseUrl + 'todos')
     .pipe(
-      // map(data => {
-      //   console.log(data);
-      //   return data;
-      // }),
+      map(data => {
+         console.log(data);
+         return data;
+       }),
       catchError(error => {
         console.log(error);
         return this.errorHandler(error);
       })
     )
     .subscribe(t => {
-      console.log(t);
+      //console.log(t);
       this.todoList = t;
     });
   }
