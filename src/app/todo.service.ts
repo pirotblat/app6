@@ -25,7 +25,7 @@ export class TodoService {
     this.http.get<any[]>(this._baseUrl + 'todos')
     .pipe(
       map(data => {
-         console.log(data);
+         //console.log(data);
          return data;
        }),
       catchError(error => {
